@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MergeWorks2 - A3縦 POP 画像合成ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>MergeWorks2</h1>
+    <p class="subtitle">A3縦 POP 画像合成ツール（ブラウザ内のみで処理／JPEG出力）</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <p class="desc">
+        横長POP画像を2枚読み込んで、A3縦キャンバスの上段・下段に自動で収まるように合成します。<br>
+        合成処理は <strong>すべてお使いのブラウザ内だけ</strong> で行われ、画像データはサーバーには送信されません。
+      </p>
+
+      <div class="input-block">
+        <label for="fileTop">画像①（上段に配置）</label>
+        <input type="file" id="fileTop" accept="image/*">
+      </div>
+
+      <div class="input-block">
+        <label for="fileBottom">画像②（下段に配置）</label>
+        <input type="file" id="fileBottom" accept="image/*">
+      </div>
+
+      <div class="preview-row">
+        <div class="preview" id="previewTop">画像① プレビュー</div>
+        <div class="preview" id="previewBottom">画像② プレビュー</div>
+      </div>
+
+      <div class="actions">
+        <button id="mergeBtn" class="btn primary" disabled>
+          A3縦で合成して JPEG をダウンロード
+        </button>
+        <p class="note">
+          出力サイズ目安：A3縦 約 3508 × 4961 px（300dpi相当）／JPEG形式
+        </p>
+      </div>
+
+      <p id="status" class="status"></p>
+    </section>
+  </main>
+
+  <!-- 非表示キャンバス（ブラウザ内でのみ使用） -->
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <footer>
+    <small>MergeWorks2 &copy; 2025</small>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
